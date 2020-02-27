@@ -5,7 +5,7 @@ RWINLIB = ../windows/geos-$(VERSION)
 TARGET = lib$(subst gcc,,$(COMPILED_BY))$(R_ARCH)
 
 PKG_CPPFLAGS =\
-	-I$(RWINLIB)/include/geos
+	-I$(RWINLIB)/include
 
 PKG_LIBS = \
 	-L$(RWINLIB)/$(TARGET) \

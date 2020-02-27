@@ -3,3 +3,5 @@
 ^README\.Rmd$
 ^autom4te\.cache$
 ^config\.*
+^windows$
+^data-raw$
