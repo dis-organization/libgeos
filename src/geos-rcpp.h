@@ -7,6 +7,7 @@
 #include <geos_c.h>
 #include <memory>
 #include <vector>
+#include <functional>
 
 // version constants
 #if GEOS_VERSION_MAJOR == 3
