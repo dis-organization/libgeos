@@ -4,7 +4,7 @@ if(getRversion() < "3.3.0") {
 
 # For details see: https://github.com/rwinlib/geos
 VERSION <- commandArgs(TRUE)
-if(!file.exists(sprintf("../windows/geos-%s/include/geos.h", VERSION))){
+if(!file.exists(sprintf("../windows/geos-%s/include/geos_c.h", VERSION))){
   if(getRversion() < "3.3.0") setInternet2()
   download.file(sprintf("https://github.com/rwinlib/geos/archive/v%s.zip", VERSION), "lib.zip", quiet = TRUE)
   dir.create("../windows", showWarnings = FALSE)

@@ -5,13 +5,105 @@
 
 using namespace Rcpp;
 
-// GEOSversion_c
-std::string GEOSversion_c();
-RcppExport SEXP _libgeos_GEOSversion_c() {
+// geos_test_roundtrip_wkt
+CharacterVector geos_test_roundtrip_wkt(CharacterVector wkt);
+RcppExport SEXP _libgeos_geos_test_roundtrip_wkt(SEXP wktSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    rcpp_result_gen = Rcpp::wrap(GEOSversion_c());
+    Rcpp::traits::input_parameter< CharacterVector >::type wkt(wktSEXP);
+    rcpp_result_gen = Rcpp::wrap(geos_test_roundtrip_wkt(wkt));
     return rcpp_result_gen;
 END_RCPP
+}
+// geos_test_roundtrip_wkb
+List geos_test_roundtrip_wkb(List wkb);
+RcppExport SEXP _libgeos_geos_test_roundtrip_wkb(SEXP wkbSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< List >::type wkb(wkbSEXP);
+    rcpp_result_gen = Rcpp::wrap(geos_test_roundtrip_wkb(wkb));
+    return rcpp_result_gen;
+END_RCPP
+}
+// geos_wkt_to_wkb
+List geos_wkt_to_wkb(CharacterVector wkt);
+RcppExport SEXP _libgeos_geos_wkt_to_wkb(SEXP wktSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< CharacterVector >::type wkt(wktSEXP);
+    rcpp_result_gen = Rcpp::wrap(geos_wkt_to_wkb(wkt));
+    return rcpp_result_gen;
+END_RCPP
+}
+// geos_wkb_to_wkt
+CharacterVector geos_wkb_to_wkt(List wkb);
+RcppExport SEXP _libgeos_geos_wkb_to_wkt(SEXP wkbSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< List >::type wkb(wkbSEXP);
+    rcpp_result_gen = Rcpp::wrap(geos_wkb_to_wkt(wkb));
+    return rcpp_result_gen;
+END_RCPP
+}
+// geos_wkt_is_parseable
+LogicalVector geos_wkt_is_parseable(CharacterVector wkt);
+RcppExport SEXP _libgeos_geos_wkt_is_parseable(SEXP wktSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< CharacterVector >::type wkt(wktSEXP);
+    rcpp_result_gen = Rcpp::wrap(geos_wkt_is_parseable(wkt));
+    return rcpp_result_gen;
+END_RCPP
+}
+// geos_wkb_is_parseable
+LogicalVector geos_wkb_is_parseable(List wkb);
+RcppExport SEXP _libgeos_geos_wkb_is_parseable(SEXP wkbSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< List >::type wkb(wkbSEXP);
+    rcpp_result_gen = Rcpp::wrap(geos_wkb_is_parseable(wkb));
+    return rcpp_result_gen;
+END_RCPP
+}
+// geos_version_impl
+std::string geos_version_impl();
+RcppExport SEXP _libgeos_geos_version_impl() {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    rcpp_result_gen = Rcpp::wrap(geos_version_impl());
+    return rcpp_result_gen;
+END_RCPP
+}
+// geos_test_throw_error
+void geos_test_throw_error();
+RcppExport SEXP _libgeos_geos_test_throw_error() {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    geos_test_throw_error();
+    return R_NilValue;
+END_RCPP
+}
+
+static const R_CallMethodDef CallEntries[] = {
+    {"_libgeos_geos_test_roundtrip_wkt", (DL_FUNC) &_libgeos_geos_test_roundtrip_wkt, 1},
+    {"_libgeos_geos_test_roundtrip_wkb", (DL_FUNC) &_libgeos_geos_test_roundtrip_wkb, 1},
+    {"_libgeos_geos_wkt_to_wkb", (DL_FUNC) &_libgeos_geos_wkt_to_wkb, 1},
+    {"_libgeos_geos_wkb_to_wkt", (DL_FUNC) &_libgeos_geos_wkb_to_wkt, 1},
+    {"_libgeos_geos_wkt_is_parseable", (DL_FUNC) &_libgeos_geos_wkt_is_parseable, 1},
+    {"_libgeos_geos_wkb_is_parseable", (DL_FUNC) &_libgeos_geos_wkb_is_parseable, 1},
+    {"_libgeos_geos_version_impl", (DL_FUNC) &_libgeos_geos_version_impl, 0},
+    {"_libgeos_geos_test_throw_error", (DL_FUNC) &_libgeos_geos_test_throw_error, 0},
+    {NULL, NULL, 0}
+};
+
+RcppExport void R_init_libgeos(DllInfo *dll) {
+    R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
+    R_useDynamicSymbols(dll, FALSE);
 }
