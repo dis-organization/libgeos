@@ -90,29 +90,28 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
-// intersect_text
-CharacterVector intersect_text(CharacterVector input1, CharacterVector input2, int precision);
-RcppExport SEXP _libgeos_intersect_text(SEXP input1SEXP, SEXP input2SEXP, SEXP precisionSEXP) {
+// intersect_wkt
+CharacterVector intersect_wkt(CharacterVector input1, CharacterVector input2, int precision);
+RcppExport SEXP _libgeos_intersect_wkt(SEXP input1SEXP, SEXP input2SEXP, SEXP precisionSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< CharacterVector >::type input1(input1SEXP);
     Rcpp::traits::input_parameter< CharacterVector >::type input2(input2SEXP);
     Rcpp::traits::input_parameter< int >::type precision(precisionSEXP);
-    rcpp_result_gen = Rcpp::wrap(intersect_text(input1, input2, precision));
+    rcpp_result_gen = Rcpp::wrap(intersect_wkt(input1, input2, precision));
     return rcpp_result_gen;
 END_RCPP
 }
-// intersect_blob
-CharacterVector intersect_blob(RawVector input1, RawVector input2, int precision);
-RcppExport SEXP _libgeos_intersect_blob(SEXP input1SEXP, SEXP input2SEXP, SEXP precisionSEXP) {
+// intersect_wkb
+RawVector intersect_wkb(RawVector input1, RawVector input2);
+RcppExport SEXP _libgeos_intersect_wkb(SEXP input1SEXP, SEXP input2SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< RawVector >::type input1(input1SEXP);
     Rcpp::traits::input_parameter< RawVector >::type input2(input2SEXP);
-    Rcpp::traits::input_parameter< int >::type precision(precisionSEXP);
-    rcpp_result_gen = Rcpp::wrap(intersect_blob(input1, input2, precision));
+    rcpp_result_gen = Rcpp::wrap(intersect_wkb(input1, input2));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -126,8 +125,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_libgeos_geos_wkb_is_parseable", (DL_FUNC) &_libgeos_geos_wkb_is_parseable, 1},
     {"_libgeos_geos_version_impl", (DL_FUNC) &_libgeos_geos_version_impl, 0},
     {"_libgeos_geos_test_throw_error", (DL_FUNC) &_libgeos_geos_test_throw_error, 0},
-    {"_libgeos_intersect_text", (DL_FUNC) &_libgeos_intersect_text, 3},
-    {"_libgeos_intersect_blob", (DL_FUNC) &_libgeos_intersect_blob, 3},
+    {"_libgeos_intersect_wkt", (DL_FUNC) &_libgeos_intersect_wkt, 3},
+    {"_libgeos_intersect_wkb", (DL_FUNC) &_libgeos_intersect_wkb, 2},
     {NULL, NULL, 0}
 };
 

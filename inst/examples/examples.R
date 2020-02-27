@@ -42,4 +42,9 @@ libgeos:::geos_wkt_to_wkb(wkt[[1]])
 ## example from DD's blog
 wkt <- libgeos:::wkt
 wkb <- libgeos:::wkb
-libgeos:::intersect_text(wkt[[1]], wkt[[2]], 1L)
+libgeos:::intersect_wkt(wkt[[1]], wkt[[2]], 1L)
+
+
+## new example with wkb
+libgeos:::intersect_wkb(wkb[[1]], wkb[[2]])
+
