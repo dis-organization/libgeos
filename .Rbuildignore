@@ -1,0 +1,5 @@
+^libgeos\.Rproj$
+^\.Rproj\.user$
+^README\.Rmd$
+^autom4te\.cache$
+^config\.*
