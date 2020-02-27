@@ -1,11 +1,4 @@
 
-library(vapour)
-dsn <- system.file("gpkg/nc.gpkg", package = "sf", mustWork = TRUE)
-## returns a list of single-element character vector
-wkt <- vapour_read_geometry_text(dsn, textformat = "wkt")
-## returns a list of raw vectors
-wkb <- vapour_read_geometry(dsn)
-
 purrr::walk(wkt, libgeos:::geos_test_roundtrip_wkt)
 purrr::walk(wkb, ~libgeos:::geos_test_roundtrip_wkb(list(.x)))
 purrr::walk(wkt, libgeos:::geos_wkt_is_parseable)
@@ -29,7 +22,7 @@ all(libgeos:::geos_test_roundtrip_wkb(wkb[1])[[1]] == wkb[[1]])
 libgeos:::geos_capi_version()
 libgeos:::geos_version_impl()
 
-libgeos:::geos_test_throw_error()
+try(libgeos:::geos_test_throw_error(), silent = TRUE)
 
 # list
 libgeos:::geos_wkb_is_parseable(wkb[1])
@@ -42,3 +35,11 @@ libgeos:::geos_wkb_to_wkt(wkb[1])
 
 ## atomic to list
 libgeos:::geos_wkt_to_wkb(wkt[[1]])
+
+
+## ----------------------- MDSumner
+
+## example from DD's blog
+wkt <- libgeos:::wkt
+wkb <- libgeos:::wkb
+libgeos:::intersect_text(wkt[[1]], wkt[[2]], 1L)

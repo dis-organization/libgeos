@@ -4,4 +4,4 @@
 ^autom4te\.cache$
 ^config\.*
 ^windows$
-^inst$
+^data-raw$

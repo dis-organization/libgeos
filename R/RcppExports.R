@@ -33,3 +33,11 @@ geos_test_throw_error <- function() {
     invisible(.Call(`_libgeos_geos_test_throw_error`))
 }
 
+intersect_text <- function(input1, input2, precision) {
+    .Call(`_libgeos_intersect_text`, input1, input2, precision)
+}
+
+intersect_blob <- function(input1, input2, precision) {
+    .Call(`_libgeos_intersect_blob`, input1, input2, precision)
+}
+

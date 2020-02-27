@@ -17,6 +17,7 @@ geos_capi_version <- function() {
   strsplit(geos_version_impl(), "[- ]")[[1]][3]
 }
 
+#' @importFrom rlang abort
 .stop_geos <- function(msg) {
   on.exit(abort(msg, class = "geos_error"))
   lst <- strsplit(msg, " at ")[[1]]
