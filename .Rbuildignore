@@ -5,3 +5,4 @@
 ^config\.*
 ^windows$
 ^data-raw$
+^CODE_OF_CONDUCT\.md$
